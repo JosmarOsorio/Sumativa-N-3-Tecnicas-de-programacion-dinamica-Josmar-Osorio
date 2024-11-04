@@ -1,263 +1,574 @@
+/* Establece un estilo base para todos los elementos */
 * {
     margin: 0;
+    /* Elimina el margen predeterminado de los elementos */
     padding: 0;
+    /* Elimina el padding predeterminado de los elementos */
     box-sizing: border-box;
+    /* Incluye el padding y el borde en las dimensiones del elemento */
     font-family: Arial, Helvetica, sans-serif;
+    /* Define la fuente utilizada en el documento */
 }
 
+/* Estilo para el cuerpo del documento */
 body {
     height: 100vh;
+    /* Establece la altura del cuerpo al 100% de la ventana del navegador */
     display: flex;
+    /* Utiliza flexbox para alinear los elementos hijos */
     justify-content: center;
+    /* Centra horizontalmente los elementos hijos */
     align-items: center;
+    /* Centra verticalmente los elementos hijos */
     background-color: #C5CBDC;
+    /* Define un color de fondo suave para el cuerpo */
 }
 
-/* Libro */
+/* Estilo para el contenedor del libro */
 .libro {
     position: relative;
+    /* Permite posicionar elementos hijos de forma absoluta dentro de este contenedor */
     width: 600px;
+    /* Ancho fijo para el libro */
     height: 900px;
+    /* Altura fija para el libro */
     transition: transform 0.5s;
+    /* Agrega una transición suave al transformar el libro */
 }
 
+/* Estilo para cada hoja del libro */
 .hoja {
     position: absolute;
+    /* Posiciona cada hoja de forma absoluta dentro del contenedor .libro */
     width: 100%;
+    /* Hace que la hoja ocupe todo el ancho del contenedor */
     height: 100%;
+    /* Hace que la hoja ocupe toda la altura del contenedor */
     top: 0;
+    /* Alinea la hoja en la parte superior del contenedor */
     left: 0;
+    /* Alinea la hoja a la izquierda del contenedor */
     perspective: 3000px;
-
+    /* Crea un efecto de perspectiva para las hojas al girar */
 }
 
+/* Estilo para la parte frontal y trasera de las hojas del libro */
 .frente,
 .dorso {
     background-color: white;
+    /* Define un color de fondo blanco para ambas caras de la hoja */
     position: absolute;
+    /* Permite posicionar ambas caras de forma absoluta dentro de .hoja */
     width: 100%;
+    /* Hace que ambas caras ocupen todo el ancho de la hoja */
     height: 100%;
+    /* Hace que ambas caras ocupen toda la altura de la hoja */
     top: 0;
+    /* Alinea ambas caras en la parte superior de .hoja */
     left: 0;
+    /* Alinea ambas caras a la izquierda de .hoja */
     transform-origin: left;
+    /* Establece el punto de origen para las transformaciones en el lado izquierdo */
     transition: transform 0.5s;
+    /* Agrega una transición suave al transformar las caras del libro */
 }
 
+/* Estilo para la cara frontal de la hoja */
 .frente {
     z-index: 1;
+    /* Asegura que la parte frontal esté por encima de la parte trasera */
     backface-visibility: hidden;
+    /* Oculta la cara trasera cuando se gira la cara frontal */
     border-left: 3px solid rgb(63, 135, 156);
+    /* Agrega un borde izquierdo de color específico a la cara frontal */
 }
 
+/* Estilo para la cara trasera de la hoja */
 .dorso {
     z-index: 0;
+    /* Asegura que la parte trasera esté debajo de la parte frontal */
 }
 
+/* Estilos comunes para el contenido de ambas caras del libro */
 .contenido-frente,
 .contenido-dorso {
     width: 100%;
+    /* Hace que el contenido ocupe todo el ancho de su contenedor */
     height: 100%;
+    /* Hace que el contenido ocupe toda la altura de su contenedor */
     display: flex;
+    /* Utiliza flexbox para alinear el contenido en su interior */
     justify-content: center;
+    /* Centra horizontalmente el contenido dentro del contenedor */
     align-items: center;
-
+    /* Centra verticalmente el contenido dentro del contenedor */
 }
 
+/* Estilo específico para el contenido de la cara frontal */
 .contenido-frente {
     background-image: url(img/imagenFondo.png);
+    /* Establece una imagen de fondo específica para la cara frontal */
     background-size: cover;
+    /* Asegura que la imagen cubra todo el área del contenedor */
     background-repeat: no-repeat;
+    /* Evita que la imagen se repita si es más pequeña que el contenedor */
 }
 
+/* Estilo específico para el contenido de la cara trasera */
 .contenido-dorso {
     background-image: url(img/imagenFondo2.png);
+    /* Establece una imagen de fondo específica para la cara trasera */
     background-size: cover;
+    /* Asegura que la imagen cubra todo el área del contenedor */
     background-repeat: no-repeat;
+    /* Evita que la imagen se repita si es más pequeña que el contenedor */
 }
 
+/* Aplica una rotación a la cara trasera para darle un efecto tridimensional al libro */
 .contenido-dorso {
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
+    /* Rota la cara trasera 180 grados en el eje Y */
 }
 
+/* Estilo para el título en la portada del libro */
 .titulo-portada {
-    color: rgb(63, 135, 156);
+    color: #82405e;
+    /* Define un color específico para el texto del título */
     font-size: 50px;
+    /* Establece un tamaño grande para el texto del título */
     font-family: serif;
+    /* Define una fuente serif para un estilo clásico */
     position: fixed;
+    /* Posiciona el título en un lugar fijo en relación con la ventana del navegador */
     top: 60px;
+    /* Distancia desde la parte superior de la ventana del navegador */
     left: 40px;
+    /* Distancia desde el lado izquierdo de la ventana del navegador */
     right: 30px;
+    /* Distancia desde el lado derecho de la ventana del navegador (no se utiliza en este caso) */
 }
 
+/* Estilo para una imagen en la portada del libro */
 .imagen-portada {
     width: 400px;
+    /* Establece un ancho fijo para la imagen de portada */
     position: fixed;
+    /* Posiciona la imagen en un lugar fijo en relación con la ventana del navegador */
     top: 250px;
+    /* Distancia desde la parte superior de la ventana del navegador */
     left: 7px;
+    /* Distancia desde el lado izquierdo de la ventana del navegador */
 }
 
+/* Estilo para el contenedor de la portada */
 .contenidos-portada {
     background-color: #243971;
+    /* Color de fondo oscuro para el contenedor */
     width: 165px;
+    /* Ancho fijo del contenedor */
     height: 600px;
+    /* Altura fija del contenedor */
     position: fixed;
+    /* Posiciona el contenedor de forma fija en la ventana del navegador */
     top: 175px;
+    /* Distancia desde la parte superior de la ventana */
     right: 0px;
+    /* Alinea el contenedor al lado derecho de la ventana */
     border-radius: 10px;
+    /* Bordes redondeados para un estilo más suave */
     color: #FEFEFE;
+    /* Color del texto en blanco para un buen contraste con el fondo */
     text-align: center;
+    /* Centra el texto dentro del contenedor */
 }
 
+/* Estilo para el subtítulo en la portada */
 .subtitulo-portada {
     font-size: 25px;
+    /* Tamaño de fuente grande para el subtítulo */
 }
 
+/* Estilo para las tablas en la portada */
 .tabla-portada {
     border-collapse: collapse;
+    /* Elimina los espacios entre los bordes de las celdas de la tabla */
 }
 
+/* Estilo para las celdas y encabezados de la tabla en la portada */
 .tabla-portada th,
 td {
     border: 1px solid #ddd;
+    /* Bordes ligeros y grises para las celdas y encabezados */
     padding: 12px;
+    /* Espaciado interno en las celdas para mejorar la legibilidad */
 }
 
+/* Estilo para una imagen adicional en la portada */
 .imagen-portada2 {
     position: fixed;
+    /* Posiciona la imagen de forma fija en la ventana del navegador */
     height: 150px;
+    /* Altura fija para la imagen */
     right: 20px;
+    /* Distancia desde el lado derecho de la ventana */
     top: 600px;
+    /* Distancia desde la parte superior de la ventana */
 }
 
+/* Estilo para un elemento de identificación en la portada */
 .identificacion {
     position: fixed;
+    /* Posiciona el elemento de identificación de forma fija en la ventana del navegador */
     bottom: 120px;
+    /* Distancia desde la parte inferior de la ventana */
     left: 20px;
+    /* Distancia desde el lado izquierdo de la ventana */
     color: rgb(63, 135, 156);
+    /* Color específico para el texto de identificación */
     font-style: italic;
-    font-style: oblique;
+    /* Estilo cursivo para darle énfasis al texto */
 }
 
-.desarrollo1, .desarrollo2, .introduccion, .conclusion, .creditos {
+/* Estilo para el número de página en el lado derecho */
+.numero-pagina-derecha {
     position: fixed;
-    /* Fija el div en la parte superior */
-    top: 5px;
-    /* Coloca el div en la parte superior */
-    text-align: center;
-    /* Centra el contenido horizontalmente */
+    /* Posiciona el número de página de forma fija en la ventana del navegador */
+    bottom: 5px;
+    /* Distancia desde la parte inferior de la ventana */
+    right: 5px;
+    /* Distancia desde el lado derecho de la ventana */
+    width: 25px;
+    /* Ancho fijo para el número de página */
+}
+
+/* Estilo para el número de página en el lado izquierdo */
+.numero-pagina-izquierda {
+    position: fixed;
+    /* Posiciona el número de página de forma fija en la ventana del navegador */
+    bottom: 5px;
+    /* Distancia desde la parte inferior de la ventana */
+    left: 5px;
+    /* Distancia desde el lado izquierdo de la ventana */
+    width: 25px;
+    /* Ancho fijo para el número de página */
+}
+
+/* Estilo específico para un número específico (número 10) con ancho fijo */
+.numero-10 {
+    width: 25px;
+    /* Ancho fijo para este número específico (número 10) */
+}
+
+/* Estilo para el texto en la contraportada del libro */
+.texto-contraportada {
+    text-align: left;
+    /* Alinea el texto a la izquierda dentro del contenedor */
+    position: fixed;
+    /* Posiciona el texto de contraportada de forma fija en la ventana del navegador */
+    left: 50px;
+    /* Distancia desde el lado izquierdo de la ventana */
+    width: 500px;
+    /* Ancho fijo del contenedor del texto, permitiendo un buen espacio para leer */
+}
+
+/* Estilo para la imagen en la contraportada del libro */
+.imagen-contraportada {
+    position: fixed;
+    /* Posiciona la imagen de contraportada de forma fija en la ventana del navegador */
+    bottom: 0px;
+    /* Alinea la imagen en la parte inferior de la ventana */
+    right: 20px;
+    /* Distancia desde el lado derecho de la ventana */
+    width: 120px;
+    /* Ancho fijo para la imagen de contraportada */
+}
+
+/* Estilo para el texto editorial */
+.texto-editorial {
     padding: 10px;
-    /* Espaciado interno (opcional) */
+    /* Agrega un espaciado interno alrededor del texto editorial */
 }
 
-.desarrollo1 div, .desarrollo2 div {
-    padding: 0px 20px;
+/* Estilos para las imágenes editoriales */
+.imagen-editorial1,
+.imagen-editorial2 {
+    position: fixed;
+    /* Posiciona ambas imágenes editoriales de forma fija en la ventana del navegador */
+    width: 100px;
+    /* Ancho fijo para ambas imágenes editoriales */
 }
 
-.desarrollo1 h2, .desarrollo2 h2{
-    font-size: 30px;
-    color: rgb(63, 135, 156);
+/* Estilo específico para la primera imagen editorial */
+.imagen-editorial1 {
+    right: 50px;
+    /* Distancia desde el lado derecho de la ventana */
+    top: 15px;
+    /* Distancia desde la parte superior de la ventana */
 }
 
-.desarrollo1 p, .desarrollo2 p {
-    font-weight: bold;
+/* Estilo específico para la segunda imagen editorial */
+.imagen-editorial2 {
+    bottom: 0px;
+    /* Alinea la imagen en la parte inferior de la ventana */
+    left: 20px;
+    /* Distancia desde el lado izquierdo de la ventana */
+    height: 150px;
+    /* Altura fija para la segunda imagen editorial */
+}
+
+/* Estilo para el índice del libro */
+.indice ul {
+    text-align: left;
+    /* Alinea el texto del índice a la izquierda */
+    padding: 5px 50px;
+    /* Agrega espaciado interno alrededor de los elementos de lista */
+}
+
+/* Estilo para los elementos de lista en el índice */
+.indice li {
+    padding: 10px;
+    /* Agrega espaciado interno a cada elemento de lista para mejorar la separación visual */
+}
+
+/* Estilo para las imágenes en el índice */
+.imagen-indice {
+    width: 200px;
+    /* Ancho fijo para las imágenes que se utilizan en el índice */
+}
+
+/* Estilo para el texto dentro del índice */
+.texto-indice {
+    padding: 30px 1px 2px 20px;
+    /* Agrega espaciado interno específico alrededor del texto del índice */
+    font-size: 18px;
+    /* Tamaño de fuente adecuado para una buena legibilidad en el índice */
+}
+
+/* Estilo para el logo del libro o publicación */
+.logo {
+    width: 100px;
+    /* Ancho fijo para el logo */
+    position: fixed;
+    /* Posiciona el logo de forma fija en la ventana del navegador */
+    bottom: 10px;
+    /* Distancia desde la parte inferior de la ventana */
+    left: 250px;
+    /* Distancia desde el lado izquierdo de la ventana */
+}
+
+/* Estilo para los encabezados dentro del directorio del libro */
+.directorio hgroup {
     padding: 20px;
-    border-radius: 10px;
-    background-color: #8cc4df;
-    color: #FEFEFE;
+    /* Agrega espaciado interno alrededor del grupo de encabezados en el directorio */
+    text-align: left;
+    /* Alinea el texto a la izquierda dentro del directorio */
 }
 
+/* Estilo para los encabezados h2 en el directorio y contraportada */
+.directorio hgroup h2,
+.contraportada h2 {
+    padding: 20px 0px;
+    /* Agrega espaciado vertical en la parte superior e inferior del encabezado */
+}
+
+/* Estilos comunes para secciones del contenido */
+.desarrollo1,
+.desarrollo2,
+.introduccion,
+.conclusion,
+.creditos,
+.directorio,
+.contraportada,
+.editorial,
+.indice {
+    position: fixed;
+    /* Fija el div en la ventana del navegador */
+    top: 5px;
+    /* Coloca el div a 5px de la parte superior de la ventana */
+    text-align: center;
+    /* Centra el contenido horizontalmente dentro del div */
+    padding: 10px;
+    /* Agrega espaciado interno alrededor del contenido */
+}
+
+/* Estilo para los divs dentro de desarrollo1 y desarrollo2 */
+.desarrollo1 div,
+.desarrollo2 div {
+    padding: 0px 20px;
+    /* Agrega espaciado lateral de 20px a los divs internos */
+}
+
+/* Estilo para encabezados h1 */
+h1 {
+    font-size: 50px;
+    /* Tamaño de fuente grande para el encabezado principal */
+    color: #82405e;
+    /* Color específico para el texto del encabezado principal */
+}
+
+/* Estilo para encabezados h2 */
+h2 {
+    font-size: 30px;
+    /* Tamaño de fuente mediano para los subtítulos */
+    color: rgb(63, 135, 156);
+    /* Color específico para los subtítulos */
+}
+
+/* Estilo para párrafos en varias secciones */
+.desarrollo1 p,
+.desarrollo2 p,
+.contraportada p,
+.editorial p {
+    font-weight: bold;
+    /* Hace que el texto sea negrita para mayor énfasis */
+    padding: 20px;
+    /* Agrega espaciado interno alrededor del texto */
+    border-radius: 10px;
+    /* Bordes redondeados para un estilo más suave */
+    background-color: #8cc4df;
+    /* Color de fondo claro para los párrafos */
+    color: #FEFEFE;
+    /* Color del texto en blanco para un buen contraste con el fondo */
+}
+
+/* Estilo para un contenedor de ejemplo con altura fija */
 .ejemplo-contenido {
     padding: 10px;
+    /* Agrega espaciado interno alrededor del contenido de ejemplo */
     height: 140px;
+    /* Altura fija para el contenedor de ejemplo */
 }
 
-.ejemplo-contenido-alt{
+/* Estilo alternativo para otro contenedor de ejemplo con altura diferente */
+.ejemplo-contenido-alt {
     padding: 10px;
+    /* Agrega espaciado interno alrededor del contenido alternativo */
     height: 120px;
+    /* Altura fija más pequeña para el contenedor alternativo de ejemplo */
 }
 
-.introduccion h1, .conclusion h1, .creditos h1{
-    font-size: 50px;
-    color: #82405e;
-}
-
-.introduccion p{
-    padding: 20px 10px; /* Reduce el padding lateral */
+/* Estilo específico para párrafos dentro de la introducción */
+.introduccion p {
+    padding: 20px 10px;
+    /* Agrega espaciado interno, reduciendo el lateral a 10px */
     width: 375px;
-    margin-left: auto; /* Centra el párrafo en el contenedor */
+    /* Ancho fijo para el párrafo, limitando su extensión horizontalmente */
+    margin-left: auto;
+    /* Centra el párrafo en su contenedor al aplicar márgenes automáticos a los lados izquierdo y derecho */
     color: #FEFEFE;
+    /* Color del texto en blanco para un buen contraste con el fondo */
     font-weight: bold;
+    /* Hace que el texto sea negrita para mayor énfasis */
 }
 
-.texto-introduccion, .texto-conclusion{
+/* Estilo para el texto en la introducción y conclusión */
+.texto-introduccion,
+.texto-conclusion {
     width: 550px;
+    /* Ancho fijo para los contenedores de texto */
     background-image: url(img/imagenFondoIntroduccion.png);
-    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
-    padding: 20px; /* Espaciado interno para el texto */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
-}
-
-.imagen-introduccion{
-    position: fixed;
-    bottom: 15px;
-    left: 100px;
-    width: 100px;
-}
-
-.conclusion p{
-    padding: 20px 10px; /* Reduce el padding lateral */
-    width: 420px;
-    margin-left: auto; /* Centra el párrafo en el contenedor */
-    color: #FEFEFE;
-    font-weight: bold;
-}
-
-.imagen-conclusion{
-    position: fixed;
-    top: 10px;
-    right: 50px;
-    width: 75px;
-}
-
-.creditos p{
+    /* Imagen de fondo específica para la introducción */
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el contenedor */
     padding: 20px;
+    /* Espaciado interno para el texto, mejorando la legibilidad */
+    box-sizing: border-box;
+    /* Incluye el padding en el ancho total del contenedor */
 }
 
-.creditos img{
+/* Estilo para la imagen en la introducción */
+.imagen-introduccion {
+    position: fixed;
+    /* Posiciona la imagen de forma fija en la ventana del navegador */
+    bottom: 15px;
+    /* Distancia desde la parte inferior de la ventana */
+    left: 100px;
+    /* Distancia desde el lado izquierdo de la ventana */
     width: 100px;
+    /* Ancho fijo para la imagen de introducción */
 }
 
-/* Efecto de giro de la hoja */
+/* Estilo para los párrafos en la conclusión */
+.conclusion p {
+    padding: 20px 10px;
+    /* Agrega espaciado interno, reduciendo el lateral a 10px */
+    width: 430px;
+    /* Ancho fijo para el párrafo de conclusión */
+    margin-left: auto;
+    /* Centra el párrafo en su contenedor al aplicar márgenes automáticos a los lados izquierdo y derecho */
+    color: #FEFEFE;
+    /* Color del texto en blanco para un buen contraste con el fondo */
+    font-weight: bold;
+    /* Hace que el texto sea negrita para mayor énfasis */
+}
+
+/* Estilo para la imagen en la conclusión */
+.imagen-conclusion {
+    position: fixed;
+    /* Posiciona la imagen de forma fija en la ventana del navegador */
+    top: 10px;
+    /* Distancia desde la parte superior de la ventana */
+    right: 50px;
+    /* Distancia desde el lado derecho de la ventana */
+    width: 75px;
+    /* Ancho fijo para la imagen de conclusión */
+}
+
+/* Estilo para los párrafos en los créditos */
+.creditos p {
+    padding: 20px;
+    /* Agrega espaciado interno alrededor del texto en los créditos */
+}
+
+/* Estilo para las imágenes en los créditos */
+.creditos img {
+    width: 100px;
+    /* Ancho fijo para las imágenes en los créditos */
+}
+
+/* Efecto de giro de las hojas cuando están giradas */
 .girada .frente,
 .girada .dorso {
     transform: rotateY(-180deg);
+    /* Rota las caras frontal y trasera al girar las hojas del libro */
 }
 
-/* Botones de control */
+/* Estilos para los botones de control */
 button {
     border: none;
+    /* Elimina el borde predeterminado del botón */
     background-color: transparent;
+    /* Hace que el fondo del botón sea transparente */
     cursor: pointer;
+    /* Cambia el cursor a una mano al pasar sobre el botón */
     margin: 150px;
+    /* Margen alrededor del botón, separándolo visualmente de otros elementos */
     transition: transform 0.5s;
+    /* Agrega una transición suave al transformar el botón (por ejemplo, al escalar) */
 }
 
 button:focus {
     outline: none;
+    /* Elimina el contorno predeterminado que aparece al enfocar un botón (para un estilo más limpio) */
 }
 
 button:hover i {
     color: #243971;
+    /* Cambia el color del ícono dentro del botón cuando se pasa el mouse sobre él */
 }
 
+/* Estilo para íconos dentro de botones o secciones específicas */
 i {
     font-size: 100px;
+    /* Tamaño grande para los íconos, haciéndolos prominentes */
     color: rgb(63, 135, 156);
+    /* Color específico para los íconos, asegurando buena visibilidad y contraste */
 }
 
-/* Orden de apilamiento de hojas */
+/* Orden de apilamiento (z-index) para diferentes hojas o elementos identificados por ID */
 #h1 {
     z-index: 5;
+    /* Mayor prioridad en la apilación, se mostrará encima de otros elementos con menor z-index */
 }
 
 #h2 {
@@ -274,4 +585,5 @@ i {
 
 #h5 {
     z-index: 1;
+    /* Menor prioridad, se mostrará debajo de otros elementos con mayor z-index */
 }
