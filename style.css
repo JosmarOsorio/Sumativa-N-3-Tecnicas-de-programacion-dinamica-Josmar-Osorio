@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -9,7 +10,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
     background-color: #C5CBDC;
 }
 
@@ -60,16 +60,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.contenido-frente{
+.contenido-frente {
     background-image: url(img/imagenFondo.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.contenido-dorso{
+.contenido-dorso {
     background-image: url(img/imagenFondo2.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -79,7 +79,7 @@ body {
     transform: rotateY(180deg)
 }
 
-.titulo-portada{
+.titulo-portada {
     color: rgb(63, 135, 156);
     font-size: 50px;
     font-family: serif;
@@ -89,14 +89,14 @@ body {
     right: 30px;
 }
 
-.imagen-portada{
+.imagen-portada {
     width: 400px;
     position: fixed;
     top: 250px;
     left: 7px;
 }
 
-.contenidos-portada{
+.contenidos-portada {
     background-color: #243971;
     width: 165px;
     height: 600px;
@@ -108,33 +108,123 @@ body {
     text-align: center;
 }
 
-.subtitulo-portada{
-    font-size: 25px;  
+.subtitulo-portada {
+    font-size: 25px;
 }
 
 .tabla-portada {
     border-collapse: collapse;
 }
 
-.tabla-portada th, td {
+.tabla-portada th,
+td {
     border: 1px solid #ddd;
     padding: 12px;
 }
 
-.imagen-portada2{
+.imagen-portada2 {
     position: fixed;
     height: 150px;
     right: 20px;
     top: 600px;
 }
 
-.identificacion{
+.identificacion {
     position: fixed;
     bottom: 120px;
     left: 20px;
     color: rgb(63, 135, 156);
     font-style: italic;
     font-style: oblique;
+}
+
+.desarrollo1, .desarrollo2, .introduccion, .conclusion, .creditos {
+    position: fixed;
+    /* Fija el div en la parte superior */
+    top: 5px;
+    /* Coloca el div en la parte superior */
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+    padding: 10px;
+    /* Espaciado interno (opcional) */
+}
+
+.desarrollo1 div, .desarrollo2 div {
+    padding: 0px 20px;
+}
+
+.desarrollo1 h2, .desarrollo2 h2{
+    font-size: 30px;
+    color: rgb(63, 135, 156);
+}
+
+.desarrollo1 p, .desarrollo2 p {
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #8cc4df;
+    color: #FEFEFE;
+}
+
+.ejemplo-contenido {
+    padding: 10px;
+    height: 140px;
+}
+
+.ejemplo-contenido-alt{
+    padding: 10px;
+    height: 120px;
+}
+
+.introduccion h1, .conclusion h1, .creditos h1{
+    font-size: 50px;
+    color: #82405e;
+}
+
+.introduccion p{
+    padding: 20px 10px; /* Reduce el padding lateral */
+    width: 375px;
+    margin-left: auto; /* Centra el párrafo en el contenedor */
+    color: #FEFEFE;
+    font-weight: bold;
+}
+
+.texto-introduccion, .texto-conclusion{
+    width: 550px;
+    background-image: url(img/imagenFondoIntroduccion.png);
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    padding: 20px; /* Espaciado interno para el texto */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.imagen-introduccion{
+    position: fixed;
+    bottom: 15px;
+    left: 100px;
+    width: 100px;
+}
+
+.conclusion p{
+    padding: 20px 10px; /* Reduce el padding lateral */
+    width: 420px;
+    margin-left: auto; /* Centra el párrafo en el contenedor */
+    color: #FEFEFE;
+    font-weight: bold;
+}
+
+.imagen-conclusion{
+    position: fixed;
+    top: 10px;
+    right: 50px;
+    width: 75px;
+}
+
+.creditos p{
+    padding: 20px;
+}
+
+.creditos img{
+    width: 100px;
 }
 
 /* Efecto de giro de la hoja */
@@ -178,10 +268,10 @@ i {
     z-index: 3;
 }
 
-#h4{
+#h4 {
     z-index: 2;
 }
 
-#h5{
+#h5 {
     z-index: 1;
 }
